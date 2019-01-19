@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Library</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Library</h1>
+    <form id="book-form">
+      <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" class="u-full-width">
+      </div>
+      <div>
+        <label for="author">Author</label>
+        <input type="text" id="author" class="u-full-width">
+      </div>
+      <div>
+        <label for="pages">Pages</label>
+        <input type="text" id="pages" class="u-full-width">
+      </div>
+      <div>
+        <label for="status">Status</label>
+        <select name="status" id="status" class="u-full-width">
+          <option value="Read">Read</option>
+          <option value="Not Read">Not Read</option>
+        </select>
+        <!-- <input type="text" name="status" id="status" class="u-full-width"> -->
+      </div>
+      <div>
+        <input type="submit" value="Submit" class="u-full-width button" id="submit">
+      </div>
+    </form>
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Pages</th>
+          <th>Status</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody id="book-list"></tbody>
+    </table>
+  </div>
+  <script src="library.js"></script>
+</body>
+</html>
