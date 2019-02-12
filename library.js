@@ -7,10 +7,6 @@ class Book {
     this.status = status;
   }
 
-  changeStatus() {
-
-  }
-
 }
 
 class UI {
@@ -91,6 +87,16 @@ class Store {
     localStorage.setItem('books', JSON.stringify(books));
   }
 
+  static changeStatus(author, title, status) {
+    const books = Store.getBooks();
+    books.forEach(book => {
+      if (book.author === author && book.title === title) {
+        book.status = status;
+        console.log(book);
+      }
+    })
+  }
+
 }
 
 // Event listener for page load
@@ -121,15 +127,23 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 // booklist event listener
 document.querySelector('#book-list').addEventListener('click', (e) => {
   const ui = new UI();
+  let books = Store.getBooks();
   if (e.target.parentElement.className === 'delete') {
     ui.showAlert('Book removed', 'success');
     ui.deleteBook(e.target);
     Store.removeBook(e.target.parentElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent, e.target.parentElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.textContent);
   }
+  
   if (e.target.textContent === 'Read') {
-    e.target.textContent = 'Not Read';
-  } else if (e.target.textContent === 'Not Read') {
-    e.target.textContent = 'Read';
+    books.forEach(book => {
+      if (
+        book.title === e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent &&
+        book.author === e.target.parentElement.previousElementSibling.previousElementSibling.textContent
+      ) {
+        Store.changeStatus(book.author, book.title, 'Not Read');
+      }
+    });
   }
+
   e.preventDefault();
 });
