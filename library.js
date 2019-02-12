@@ -49,7 +49,7 @@ class UI {
     });
   }
 
-  static clearList() {
+  clearList() {
     const rows = document.querySelectorAll('tr');
     rows.forEach(row => {
       row.remove();
@@ -96,14 +96,16 @@ class Store {
 
   static changeStatus(author, title, status) {
     const books = Store.getBooks();
+    const ui = new UI;
     books.forEach(book => {
       if (book.author === author && book.title === title) {
         book.status = status;
       }
     });
     localStorage.setItem('books', JSON.stringify(books));
-    UI.clearList();
+    ui.clearList();
     Store.displayBooks();
+    ui.showAlert('Book Status Updated', 'success');
   }
 
 }
