@@ -49,6 +49,13 @@ class UI {
     });
   }
 
+  static clearList() {
+    const rows = document.querySelectorAll('tr');
+    rows.forEach(row => {
+      row.remove();
+    });
+  }
+
 }
 
 class Store {
@@ -65,7 +72,7 @@ class Store {
 
   static displayBooks() {
     const books = Store.getBooks();
-    books.forEach((book) => {
+    books.forEach(book => {
       const ui = new UI;
       ui.addBookToList(book);
     });
@@ -92,9 +99,11 @@ class Store {
     books.forEach(book => {
       if (book.author === author && book.title === title) {
         book.status = status;
-        console.log(book);
       }
-    })
+    });
+    localStorage.setItem('books', JSON.stringify(books));
+    UI.clearList();
+    Store.displayBooks();
   }
 
 }
@@ -141,6 +150,15 @@ document.querySelector('#book-list').addEventListener('click', (e) => {
         book.author === e.target.parentElement.previousElementSibling.previousElementSibling.textContent
       ) {
         Store.changeStatus(book.author, book.title, 'Not Read');
+      }
+    });
+  } else if (e.target.textContent === 'Not Read') {
+    books.forEach(book => {
+      if (
+        book.title === e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent &&
+        book.author === e.target.parentElement.previousElementSibling.previousElementSibling.textContent
+      ) {
+        Store.changeStatus(book.author, book.title, 'Read');
       }
     });
   }
