@@ -2,6 +2,8 @@
 
 ### Simple in-browser library app, built with vanilla JS and Skeleton CSS
 
+### [Check It Out!](https://balowulf.github.io/library/)
+
 ![](Jun-22-2019&#32;21-08-12.gif)
 
 ### Todo:
