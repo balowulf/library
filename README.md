@@ -1,6 +1,6 @@
 # Library
 
-### Simple in-browser library app, built with vanilla JS and Skeleton CSS
+### Simple in-browser library app, built with vanilla JS and Skeleton CSS, utilizing browser Local Storage to persist data.
 
 ### [Check It Out!](https://balowulf.github.io/library/)
 
