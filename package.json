@@ -1,0 +1,24 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "### Simple in-browser library app, built with vanilla JS and Skeleton CSS, utilizing browser Local Storage to persist data.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balowulf/library.git"
+  },
+  "author": "Chris Balow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/balowulf/library/issues"
+  },
+  "homepage": "https://github.com/balowulf/library#readme",
+  "dependencies": {
+    "vite": "^4.3.4"
+  }
+}

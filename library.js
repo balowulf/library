@@ -107,7 +107,10 @@ class Store {
     Store.displayBooks();
     ui.showAlert('Book Status Updated', 'success');
   }
-
+  
+  static method1(input) {
+    console.log(`this is showing the ${input}`); 
+  }
 }
 
 // Event listener for page load
